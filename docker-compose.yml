@@ -10,5 +10,16 @@ services:
     volumes:
       - mongodb_data_container:/data/db
 
+  mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data_container:/var/lib/mysql
+
 volumes:
   mongodb_data_container:
+  mysql_data_container:
