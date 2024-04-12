@@ -20,6 +20,15 @@ services:
     volumes:
       - mysql_data_container:/var/lib/mysql
 
+  redis:
+    image: redis:latest
+    command: redis-server --requirepass redis123
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data_container:/data
+
 volumes:
   mongodb_data_container:
   mysql_data_container:
+  redis_data_container:
